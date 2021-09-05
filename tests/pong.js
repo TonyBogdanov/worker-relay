@@ -4,9 +4,9 @@ import runFrontend from '../src/frontend/run-frontend';
 export default {
 
     'Should get challenge response from frontend.': async assert =>
-        assert.deepEqual( [ 'ping:back', 'frontend', 'foo' ], await runFrontend( 'ping', 'foo' ) ),
+        assert.deepEqual( [ 'pong:back', 'frontend', 'foo' ], await runFrontend( 'pong', 'foo' ) ),
 
     'Should get challenge response from backend.': async assert =>
-        assert.deepEqual( [ 'ping:back', 'backend', 'bar' ], await runBackend( 'ping', 'bar' ) ),
+        assert.deepEqual( [ 'pong:back', 'backend', 'bar' ], await runBackend( 'pong', 'bar' ) ),
 
 };

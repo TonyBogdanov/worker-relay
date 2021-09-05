@@ -3,7 +3,7 @@ import singleton from '../singleton';
 import log from '../log';
 import listen from '../listen';
 
-export default function registerBackend( resolver ) {
+export default function registerBackend() {
 
     if ( singleton.registered ) {
 
@@ -12,12 +12,6 @@ export default function registerBackend( resolver ) {
     }
 
     /* debug:start */
-    if ( 'function' !== typeof resolver ) {
-
-        throw `Supplied resolver must be a function.`;
-
-    }
-
     if ( is.frontend ) {
 
         throw `Cannot register the backend in a frontend environment.`;
@@ -29,8 +23,6 @@ export default function registerBackend( resolver ) {
 
     singleton.registered = true;
     singleton.handle = self;
-
-    singleton.resolver = resolver;
 
     listen();
 

@@ -5,18 +5,28 @@ export default async function execute( payload ) {
 
     if ( ! singleton.cache.hasOwnProperty( payload.data.name ) ) {
 
-        const task = await singleton.resolver( payload.data.name );
+        let resolvedTask;
+        for ( const resolver of singleton.resolvers ) {
+
+            const task = await resolver( payload.data.name );
+            if ( 'function' === typeof task ) {
+
+                resolvedTask = task;
+                break;
+
+            }
+
+        }
 
         /* debug:start */
-        if ( 'function' !== typeof task ) {
+        if ( ! resolvedTask ) {
 
-            throw new Error( `[WorkerRelay] Invalid task: ${ payload.data.name
-                }, resolver must return a function, or a promise resolving to a function, got: ${ typeof task }.` );
+            throw new Error( `[WorkerRelay] Invalid task: ${ payload.data.name }.` );
 
         }
         /* debug:stop */
 
-        singleton.cache[ payload.data.name ] = task;
+        singleton.cache[ payload.data.name ] = resolvedTask;
 
     }
 

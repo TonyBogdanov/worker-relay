@@ -1,10 +1,13 @@
 import Worker from './worker';
-import resolver from './resolver';
-import register from '../src/frontend/register';
+import registerFrontend from '../src/frontend/register-frontend';
+import registerResolver from '../src/register-resolver';
+import pingResolver from './ping-resolver';
+import pongResolver from './pong-resolver';
 
 document.addEventListener( 'DOMContentLoaded', () => setTimeout( async () => {
 
-    register( new Worker(), resolver );
+    registerFrontend( new Worker() );
+    registerResolver( pingResolver, pongResolver );
 
     const suite = {};
     const context = require.context( '../tests', true, /\.js$/, 'lazy' );

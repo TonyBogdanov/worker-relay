@@ -1,4 +1,7 @@
-import resolver from './resolver';
-import registerBackend from '../src/backend/register';
+import registerBackend from '../src/backend/register-backend';
+import registerResolver from '../src/register-resolver';
+import pingResolver from './ping-resolver';
+import pongResolver from './pong-resolver';
 
-registerBackend( resolver );
+registerBackend();
+registerResolver( pingResolver, pongResolver );

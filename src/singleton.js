@@ -6,6 +6,6 @@ export default {
     pool: {},
     cache: {},
 
-    resolver: () => null,
+    resolvers: [],
 
 }

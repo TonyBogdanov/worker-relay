@@ -1,6 +1,6 @@
 {
   "name": "worker-relay",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "description": "WebWorker Relay",
   "main": "index.js",
   "repository": {
