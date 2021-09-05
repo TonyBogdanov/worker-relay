@@ -6,7 +6,7 @@ export default class message {
 
     constructor( type, source, target, data = {} ) {
 
-        this.__class = message.constructor.name;
+        this.__class = 'worker_relay_message';
 
         this.id = Math.random().toString( 36 ).substr( 2, 9 );
         this.type = type;

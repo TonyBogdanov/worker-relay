@@ -10,7 +10,7 @@ export default function listen() {
 
         // Avoid processing non-WorkerRelay messages.
         if ( 'object' !== typeof payload || 'string' !== typeof payload.__class ||
-            payload.__class !== message.constructor.name ) {
+            payload.__class !== 'worker_relay_message' ) {
 
             return;
 
