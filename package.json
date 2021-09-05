@@ -1,0 +1,48 @@
+{
+  "name": "worker-relay",
+  "version": "1.0.0",
+  "description": "WebWorker Relay",
+  "main": "index.js",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/tonybogdanov/worker-relay.git"
+  },
+  "author": "Tony Bogdanov <support@tonybogdanov.com>",
+  "license": "MIT",
+  "browserslist": [
+    "since 2017"
+  ],
+  "scripts": {
+    "webpack": "webpack serve --progress --mode=development --stats-children",
+    "build": "webpack-cli --progress --mode=production --stats-children",
+    "test": "node ./test.js"
+  },
+  "bugs": {
+    "url": "https://github.com/tonybogdanov/worker-relay/issues"
+  },
+  "homepage": "https://github.com/tonybogdanov/worker-relay#readme",
+  "directories": {
+    "test": "tests"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.15.5",
+    "@babel/plugin-transform-modules-commonjs": "^7.15.4",
+    "@babel/plugin-transform-runtime": "^7.15.0",
+    "@babel/preset-env": "^7.15.4",
+    "babel-loader": "^8.2.2",
+    "browserslist": "^4.16.8",
+    "browserslist-browserstack": "^3.1.1",
+    "browserstack-local": "^1.4.8",
+    "compare-versions": "^3.6.0",
+    "core-js": "^3.17.2",
+    "html-webpack-plugin": "^5.3.2",
+    "mocha": "^9.1.1",
+    "rimraf": "^3.0.2",
+    "selenium-webdriver": "^4.0.0-rc-1",
+    "tree-kill": "^1.2.2",
+    "webpack": "^5.52.0",
+    "webpack-cli": "^4.8.0",
+    "webpack-dev-server": "^4.1.0",
+    "worker-loader": "^3.0.8"
+  }
+}
