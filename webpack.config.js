@@ -2,7 +2,6 @@ const path = require( 'path' );
 const HtmlWebpackPlugin = require( 'html-webpack-plugin' );
 
 module.exports = {
-
     devtool: false,
     entry: [ 'core-js/stable', './web/index.js' ],
 
@@ -10,38 +9,22 @@ module.exports = {
     plugins: [ new HtmlWebpackPlugin( { template: './web/index.html' } ) ],
 
     module: {
-
-        rules: [
-
-            {
-
-                test: /worker\.js$/,
-                use: { loader: 'worker-loader' },
-
-            },
-            {
-
-                test: /\.js$/,
-                use: {
-
-                    loader: 'babel-loader',
-                    options: {
-
-                        presets: [ '@babel/preset-env' ],
-                        plugins: [ '@babel/plugin-transform-runtime', '@babel/plugin-transform-modules-commonjs' ],
-
-                    },
-
+        rules: [ {
+            test: /worker\.js$/,
+            use: { loader: 'worker-loader' },
+        }, {
+            test: /\.js$/,
+            use: {
+                loader: 'babel-loader',
+                options: {
+                    presets: [ '@babel/preset-env' ],
+                    plugins: [ '@babel/plugin-transform-runtime', '@babel/plugin-transform-modules-commonjs' ],
                 },
-
             },
-
-        ],
-
+        } ],
     },
 
     devServer: {
-
         host: 'localhost',
         allowedHosts: [ 'localhost' ],
 
@@ -56,7 +39,5 @@ module.exports = {
 
         historyApiFallback: true,
         https: false,
-
     },
-
 };

@@ -5,14 +5,10 @@ import log from './log';
 import execute from './execute';
 
 export default function run( target, name, args ) {
-
     return new Promise( ( resolve, reject ) => {
-
         const payload = new message( message.TYPE_INVOKE, is.what, target, { name, args } );
         if ( is.what === target ) {
-
             return execute( payload ).then( resolve, reject );
-
         }
 
         /* debug:start */
@@ -22,7 +18,5 @@ export default function run( target, name, args ) {
 
         singleton.pool[ payload.id ] = { resolve, reject };
         singleton.handle.postMessage( payload );
-
     } );
-
 };

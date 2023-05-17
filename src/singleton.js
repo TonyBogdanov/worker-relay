@@ -1,5 +1,4 @@
 export default {
-
     registered: false,
     handle: null,
 
@@ -7,5 +6,4 @@ export default {
     cache: {},
 
     resolvers: [],
-
 }
